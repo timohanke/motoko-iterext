@@ -13,7 +13,15 @@ import Iter "mo:base/Iter";
 import IterExt "iterext.mo";
 let buffer : BlockBuffer<Nat> = BlockBuffer(64);
 let iter = Iter.range(1,100);
-buffer.fill(iter);
+let n = buffer.fill(iter);
 let a : [Nat8] = buffer.toArray();
+assert (n == a.size()); 
 ```
 This will create an array `a` of length `64` filled with `1,2,...,64`.
+
+Other methods are:
+
+* `reset()`: Resets the fill level to the beginning. Subsequent `fill` will overwrite values already in the buffer.
+* `refill(iter)`: Shorthand for `reset(); fill(iter);`.
+* `isFull()`: Returns a `Bool` indicating whether the buffer is full or not.
+* `get(i)`: Get the i-th value in the buffer.
