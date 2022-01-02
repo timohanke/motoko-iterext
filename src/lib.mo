@@ -3,9 +3,11 @@ import Iter "mo:base/Iter";
 import P "mo:base/Prelude";
 
 module {
-    // A fixed length buffer of type T that can be filled from an iterator
-    // until the buffer is full or the iterator is exhausted.
-    // val is an arbitrary value of type T, used only to initialize an array
+    /* 
+        A fixed length buffer of type T that can be filled from an iterator
+        until the buffer is full or the iterator is exhausted.
+        val is an arbitrary value of type T, used only to initialize an array
+    */
     public class BlockBuffer<T>(size : Nat) {
         private let buffer : [var ?T] = Array.init<?T>(size, null);
         private var pos : Nat = 0;
@@ -39,8 +41,15 @@ module {
             pos == size;
         };
 
-        public func toArray() : [T] {
-            Array.tabulate<T>(pos, get);    
+        public func toArray(dir : {#fwd; #bwd}) : [T] {
+            switch dir {
+                case (#fwd) {
+                    Array.tabulate<T>(pos, get)
+                };
+                case (#bwd) {
+                    Array.tabulate<T>(pos, func(i) { get((pos-1)-i) })
+                }
+            }     
         };
 
         public func get(i : Nat) : T {
