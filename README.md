@@ -1,4 +1,7 @@
-# iterext
+## The iterext Package
+
+[![Build Status](https://github.com/timohanke/motoko-iterext/workflows/build/badge.svg)](https://github.com/timohanke/motoko-iterext/actions?query=workflow%3Abuild)
+
 Extensions for Motoko Iter package
 
 Sometimes it is required to multiple values at once from an iterator. The `Iter` package provides the function `next` which only gets one value, if available. 
