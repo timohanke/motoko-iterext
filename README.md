@@ -14,7 +14,7 @@ import IterExt "iterext.mo";
 let buffer : BlockBuffer<Nat> = BlockBuffer(64);
 let iter = Iter.range(1,100);
 let n = buffer.fill(iter);
-let a : [Nat8] = buffer.toArray();
+let a : [Nat8] = buffer.toArray(#fwd);
 assert (n == a.size()); 
 ```
 This will create an array `a` of length `64` filled with `1,2,...,64`.
