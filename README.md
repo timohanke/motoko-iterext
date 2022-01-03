@@ -1,6 +1,6 @@
 ## The iterext Package
 
-[![Build Status](https://github.com/timohanke/motoko-iterext/workflows/build/badge.svg)](https://github.com/timohanke/motoko-iterext/actions?query=workflow%3Abuild)
+[![ci](https://github.com/timohanke/motoko-iterext/actions/workflows/ci.yml/badge.svg)](https://github.com/timohanke/motoko-iterext/actions/workflows/ci.yml)
 
 Extensions for Motoko Iter package
 
