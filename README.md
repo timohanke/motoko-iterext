@@ -2,11 +2,13 @@
 
 [![ci](https://github.com/timohanke/motoko-iterext/actions/workflows/ci.yml/badge.svg)](https://github.com/timohanke/motoko-iterext/actions/workflows/ci.yml)
 
-Extensions for Motoko Iter package
+Extensions for the Motoko Iter package
+
+### Reading multiple values at once
 
 Sometimes it is required to multiple values at once from an iterator. The `Iter` package provides the function `next` which only gets one value, if available. 
 
-Moreover, it canont be known in advance how many values an interator has available. The `Iter` package provides the function `size` but calling it will consume all values from the iterator, i.e. the values cannot be obtained anymore after calling `size`.
+Moreover, it cannot be known in advance how many values an interator has available. The `Iter` package provides the function `size` but calling it will consume and discard all values from the iterator, i.e. the values cannot be obtained anymore after calling `size`.
 
 In this extension package we provide a fixed length buffer. The buffer provides a method `fill` which can be called on an iterator. Then the buffer will be filled with values from the iterator until the buffer is full or the iterator is exhausted. If the buffer is full then it can be later reset and used again to be filled from the same iterator. If the iterator is exhausted but the buffer not yet full then the buffer can be continued to be filled from the current fill level onwards with values from another iterator.
 
